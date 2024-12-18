@@ -212,7 +212,7 @@ class Game {
    * Starts the game.
    */
   start() {
-    this.gameStatus = Game.gameStatus.playing;
+    this.gameStatus = Game.gameStatus().playing;
     this.generateTile(2);
   }
 

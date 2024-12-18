@@ -20,7 +20,7 @@ class Game {
   }
 
   constructor(initialState = Game.getInitialState()) {
-    this.gameStatus = Game.gameStatus.idle;
+    this.gameStatus = Game.gameStatus().idle;
     this.score = 0;
     this.initialState = JSON.parse(JSON.stringify(initialState));
     this.state = initialState;
@@ -85,8 +85,12 @@ class Game {
   isWin() {
     this.state.flat().some((tile) => {
       if (tile === 2048) {
-        this.gameStatus = Game.gameStatus.win;
+        this.gameStatus = Game.gameStatus().win;
+
+        return true;
       }
+
+      return false;
     });
   }
 
@@ -106,7 +110,7 @@ class Game {
       }
     }
 
-    this.gameStatus = Game.gameStatus.lose;
+    this.gameStatus = Game.gameStatus().lose;
   }
 
   updateState(newState) {
@@ -118,7 +122,7 @@ class Game {
   }
 
   moveLeft() {
-    if (this.getStatus() !== Game.gameStatus.playing) {
+    if (this.getStatus() !== Game.gameStatus().playing) {
       return;
     }
 
@@ -128,7 +132,7 @@ class Game {
   }
 
   moveRight() {
-    if (this.getStatus() !== Game.gameStatus.playing) {
+    if (this.getStatus() !== Game.gameStatus().playing) {
       return;
     }
 
@@ -142,7 +146,7 @@ class Game {
   }
 
   moveUp() {
-    if (this.getStatus() !== Game.gameStatus.playing) {
+    if (this.getStatus() !== Game.gameStatus().playing) {
       return;
     }
 
@@ -167,7 +171,7 @@ class Game {
   }
 
   moveDown() {
-    if (this.getStatus() !== Game.gameStatus.playing) {
+    if (this.getStatus() !== Game.gameStatus().playing) {
       return;
     }
 
@@ -217,9 +221,10 @@ class Game {
    */
   restart() {
     this.score = 0;
-    this.state = this.initialState;
-    this.gameStatus = Game.gameStatus.idle;
+    this.state = Game.getInitialState();
+    this.gameStatus = Game.gameStatus().idle;
     this.updateBoard();
+    this.generateTile(2);
   }
 
   filterZero(row) {

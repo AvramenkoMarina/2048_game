@@ -41,7 +41,7 @@ button.addEventListener('click', () => {
 });
 
 document.addEventListener('keyup', (e) => {
-  if (game.getStatus() !== 'playing') {
+  if (game.getStatus() !== Game.gameStatus().playing) {
     return;
   }
 

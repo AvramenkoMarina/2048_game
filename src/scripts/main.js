@@ -32,11 +32,9 @@ button.addEventListener('click', () => {
     button.innerHTML = 'Restart';
   } else {
     game.restart();
-    score.innerHTML = game.getScore();
-    button.classList.replace('restart', 'start');
-    button.innerHTML = 'Start';
   }
 
+  score.innerHTML = game.getScore();
   showMessage();
 });
 

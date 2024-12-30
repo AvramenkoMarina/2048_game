@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
-const Game = require('../modules/Game.class');
+const Game = require("../modules/Game.class");
 const game = new Game();
 
-const button = document.querySelector('.button');
-const score = document.querySelector('.game-score');
-const startMessage = document.querySelector('.message-start');
-const loseMessage = document.querySelector('.message-lose');
-const winMessage = document.querySelector('.message-win');
+const button = document.querySelector(".button");
+const score = document.querySelector(".game-score");
+const startMessage = document.querySelector(".message-start");
+const loseMessage = document.querySelector(".message-lose");
+const winMessage = document.querySelector(".message-win");
 
 const messages = {
   idle: startMessage,
@@ -20,16 +20,16 @@ function showMessage() {
 
   for (const key in messages) {
     if (messages[key]) {
-      messages[key].classList.toggle('hidden', key !== currentStatus);
+      messages[key].classList.toggle("hidden", key !== currentStatus);
     }
   }
 }
 
-button.addEventListener('click', () => {
-  if (button.classList.contains('start')) {
+button.addEventListener("click", () => {
+  if (button.classList.contains("start")) {
     game.start();
-    button.classList.replace('start', 'restart');
-    button.innerHTML = 'Restart';
+    button.classList.replace("start", "restart");
+    button.innerHTML = "Restart";
   } else {
     game.restart();
   }
@@ -38,22 +38,22 @@ button.addEventListener('click', () => {
   showMessage();
 });
 
-document.addEventListener('keyup', (e) => {
+document.addEventListener("keyup", (e) => {
   if (game.getStatus() !== Game.gameStatus().playing) {
     return;
   }
 
   switch (e.code) {
-    case 'ArrowLeft':
+    case "ArrowLeft":
       game.moveLeft();
       break;
-    case 'ArrowRight':
+    case "ArrowRight":
       game.moveRight();
       break;
-    case 'ArrowUp':
+    case "ArrowUp":
       game.moveUp();
       break;
-    case 'ArrowDown':
+    case "ArrowDown":
       game.moveDown();
       break;
   }

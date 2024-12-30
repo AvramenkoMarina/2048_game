@@ -1,12 +1,12 @@
-'use strict';
+"use strict";
 
 class Game {
   static gameStatus() {
     return {
-      idle: 'idle',
-      playing: 'playing',
-      win: 'win',
-      lose: 'lose',
+      idle: "idle",
+      playing: "playing",
+      win: "win",
+      lose: "lose",
     };
   }
 
@@ -60,14 +60,14 @@ class Game {
   }
 
   updateBoard() {
-    const fieldRow = document.querySelectorAll('.field-row');
+    const fieldRow = document.querySelectorAll(".field-row");
 
     fieldRow.forEach((row, index) => {
-      row.querySelectorAll('.field-cell').forEach((cell, i) => {
+      row.querySelectorAll(".field-cell").forEach((cell, i) => {
         const num = this.state[index][i];
 
-        cell.classList = 'field-cell';
-        cell.innerHTML = '';
+        cell.classList = "field-cell";
+        cell.innerHTML = "";
 
         if (num === 0) {
           return;
@@ -102,8 +102,8 @@ class Game {
     for (let r = 0; r < 4; r++) {
       for (let c = 0; c < 4; c++) {
         if (
-          (r < 3 && this.state[r][c] === this.state[r + 1][c])
-          || (c < 3 && this.state[r][c] === this.state[r][c + 1])
+          (r < 3 && this.state[r][c] === this.state[r + 1][c]) ||
+          (c < 3 && this.state[r][c] === this.state[r][c + 1])
         ) {
           return;
         }
@@ -225,7 +225,7 @@ class Game {
   restart() {
     this.score = 0;
     this.state = Game.getInitialState();
-    this.gameStatus = Game.gameStatus().idle;
+    this.gameStatus = Game.gameStatus().playing;
     this.updateBoard();
     this.generateTile(2);
   }

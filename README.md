@@ -5,7 +5,9 @@ This project is a web-based implementation of the popular 2048 game. The game in
 https://avramenkomarina.github.io/2048_game/
 
 ## Technologies
-JavaScript, HTML, SCSS
+- **HTML5**: Used to structure the game interface, including the game board and UI elements.
+- **SCSS**: A preprocessor for CSS that enhances styles with features like variables, nesting, and modularity, making the code more organized and maintainable.
+- **JavaScript**: Implements the game's logic and interactivity, managing tile movements, merging, score updates, and overall game state.
 
 ## Launch Instructions:
 

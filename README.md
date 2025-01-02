@@ -11,11 +11,11 @@ JavaScript, HTML, SCSS
 
 1. Clone the Repository  
    ```bash
-     git clone https://github.com/AvramenkoMarina/2048_game.git
+   git clone https://github.com/AvramenkoMarina/2048_game.git
 
 2. Navigate into the project directory
    ```bash
-     cd 2048_game
+   cd 2048_game
 3. Install Dependencies npm install
 4. Open in Browser.
 
